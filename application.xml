@@ -3,15 +3,15 @@
 	xmlns="http://ns.adobe.com/air/application/1.5">
 <!-- AIR Application Descriptor File. See
 	http://www.adobe.com/go/air_1.1_application_descriptor. -->
-	<id>Ticker.AIR</id>
-	<name>Ticker</name>
-	<version>0.7.6.0</version>
-	<filename>Ticker</filename>
+	<id>Tickee.AIR</id>
+	<name>Tickee</name>
+	<version>0.7.6.2</version>
+	<filename>Tickee</filename>
 	<description>A client for UPEI Ticker Community</description>
 	<copyright>Copyright Funkatron Productions, Copyright University of Prince Edward Island, Copyright Webinit Consulting</copyright>
 	<initialWindow>
 		<content>index.html</content>
-		<title>Ticker</title>
+		<title>Tickee</title>
 		<systemChrome>none</systemChrome>
 		<transparent>true</transparent>
 		<visible>false</visible>
@@ -28,8 +28,8 @@
 		<x>150</x>
 		<y>150</y>
 	</initialWindow>
-	<installFolder>Ticker</installFolder>
-	<programMenuFolder>Ticker</programMenuFolder>
+	<installFolder>UPEI</installFolder>
+	<programMenuFolder>UPEI</programMenuFolder>
 	<icon>  
 		<image128x128>images/spaz-icon-alpha.png</image128x128>
 		<image48x48>images/spaz-icon-alpha_48.png</image48x48>
