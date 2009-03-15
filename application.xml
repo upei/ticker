@@ -4,14 +4,14 @@
 <!-- AIR Application Descriptor File. See
 	http://www.adobe.com/go/air_1.1_application_descriptor. -->
 	<id>Ticker.AIR</id>
-	<name>Spaz</name>
+	<name>Ticker</name>
 	<version>0.7.6.0</version>
-	<filename>Spaz</filename>
+	<filename>Ticker</filename>
 	<description>A client for UPEI Ticker Community</description>
-	<copyright>Copyright Funkatron Productions, Copyright University of Prince Edward Island</copyright>
+	<copyright>Copyright Funkatron Productions, Copyright University of Prince Edward Island, Copyright Webinit Consulting</copyright>
 	<initialWindow>
 		<content>index.html</content>
-		<title>Spaz</title>
+		<title>Ticker</title>
 		<systemChrome>none</systemChrome>
 		<transparent>true</transparent>
 		<visible>false</visible>

@@ -1,4 +1,6 @@
 Copyright (c) 2007-2008, Edward Finkler
+Copyright (c) 2009, University of Prince Edward Island
+Copyright (c) 2009, Webinit Consulting
 
 All rights reserved.
 
