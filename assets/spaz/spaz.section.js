@@ -287,7 +287,7 @@ Spaz.Section.init = function() {
 		wrapper: 'timelinewrapper-search',
 		tab: 'tab-search',
 		tabIndex: 2,
-		urls: new Array('http://summize.com/search.json?q={{query}}'),
+		urls: new Array('http://ic.upei.ca/ticker/api/search.json?q={{query}}'),
 		lastid: 0,
 		lastcheck: 0,
 		currdata: null,
@@ -299,6 +299,9 @@ Spaz.Section.init = function() {
 		lastquery: null,
 
 		build: function(force) {
+			
+			var user = Spaz.Prefs.user;
+			var pass = Spaz.Prefs.pass;
 
 			if ($('#search-for').val().length > 0) {
 
@@ -312,13 +315,25 @@ Spaz.Section.init = function() {
 				Spaz.UI.statusBar("Searching for '" + $('#search-for').val() + "'…");
 				Spaz.UI.showLoading();
 
-				var url = 'http://summize.com/search.json';
+				var url = 'http://ic.upei.ca/ticker/api/search.json';
 				var data = {
 					"rpp": 50,
 					"q": $('#search-for').val(),
 				};
-				$.get(url, data, this.onAjaxComplete)
-
+				$.ajax({
+					complete:Spaz.Data.onAjaxComplete,
+					error:Spaz.Data.onAjaxError,
+					success: this.onAjaxComplete,
+					beforeSend: function(xhr) {
+						xhr.setRequestHeader("Authorization", "Basic " + Base64.encode(user + ":" + pass));
+						// cookies just get in the way.	 eliminate them.
+						xhr.setRequestHeader("Cookie", "");
+					},
+					processData: false,
+					type: 'GET',
+					url: url,
+					data: data
+				});
 			}
 
 		},
