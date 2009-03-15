@@ -422,11 +422,18 @@
 								</div>
 								<div class="formrow" style="text-align:right; margin-top:15px">
 									<!-- <div><span class="restart-required">*</span> <span class="prefs-restart-msg">restart required</span></div> -->
-									<input type="button" id="prefs-update-button" name="update" value="Login"
+									<input type="button" id="prefs-update-button" name="update" value="Login &bull;"
 										onclick="Spaz.Prefs.setPrefs()" />
 									
+									<!--
 									<div style="margin-top:1em;">
 										<a id="prefs-open-folder" class="clickable">Open Prefs Folder</a>
+									</div>
+									-->
+									
+									<div style="margin-top:1em;">
+									<input type="button" id="prefs-checkupdate-button" name="checkupdate-button"
+										value="Check Update &bull;" onclick="Spaz.Update.go();" />
 									</div>
 									
 								</div>

@@ -131,7 +131,8 @@ Spaz.Data.verifyPassword = function() {
 			//	   Spaz.UI.statusBar("Verification failed");
 			//	   Spaz.UI.flashStatusBar();
 			// }
-			
+			// choose first tab
+			Spaz.UI.showTab(0);
 		},
 		beforeSend:function(xhr){
 			xhr.setRequestHeader("Authorization", "Basic " + Base64.encode(user + ":" + pass));
