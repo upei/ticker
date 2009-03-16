@@ -43,7 +43,7 @@ Spaz.Menus.initAll = function() {
 
     } else if(air.NativeApplication.supportsSystemTrayIcon) { // system tray on windows
 		Spaz.dump('Making Windows system tray menu')
-	    // air.NativeApplication.nativeApplication.icon.tooltip = "Spaz loves you";
+	    // air.NativeApplication.nativeApplication.icon.tooltip = "Tick, Tickie, Ticker.";
 	    air.NativeApplication.nativeApplication.icon.menu = Spaz.Menus.createRootMenu();
 		// 	    var systrayIconLoader = new air.Loader();
 		// 	    systrayIconLoader.contentLoaderInfo.addEventListener(air.Event.COMPLETE,
