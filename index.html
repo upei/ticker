@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:spry="http://ns.adobe.com/spry">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 	<title>Tickee</title>
 
 	<link rel="stylesheet" href="assets/init.css" type="text/css" media="screen" charset="utf-8" />
@@ -337,7 +338,7 @@
 							<div id="prefsCPG" class="CollapsiblePanelGroup">
 
 							<div id="prefs-user-fieldset" class="CollapsiblePanel">
-								<h2 class="CollapsiblePanelTab" tabindex="0">Account Information</h2>
+								<h2 class="CollapsiblePanelTab" tabindex="0">Login</h2>
 								<div class="CollapsiblePanel">
 									<fieldset>
 										<legend>Authentication</legend>
@@ -349,6 +350,13 @@
 										<div class="formrow">
 											<label for="password">Password</label>
 											<input type="password" name="password" id="password" value="" />
+										</div>
+									</fieldset>
+									<fieldset>
+										<legend>Settings</legend>
+										<div class="formrow">
+											<input type="checkbox" name="sound-enabled" value="1" id="sound-enabled" />
+											<label class="checkbox" for="sound-enabled">Enable Sound</label>
 										</div>
 									</fieldset>
 									<input type="hidden" name="twitter-api-base-url" id="twitter-api-base-url" value="http://ic.upei.ca/ticker/api/" />
@@ -413,7 +421,6 @@
 									<input type="hidden" name="maximize-foreground" value="1" id="window-restoreonactivate" />
 									<input type="hidden" name="timeline-scrollonupdate" value="1" id="timeline-scrollonupdate" />
 									<input type="hidden" name="timeline-keyboardnavwrap" value="1" id="timeline-keyboardnavwrap" />
-									<input type="hidden" name="sound-enabled" value="1" id="sound-enabled" />
 									<input type="hidden" name="wilhelm-enabled" value="1" id="wilhelm-enabled" />
 									<input type="hidden" name="checkupdate-enabled" value="1" id="checkupdate" />
 									<input type="hidden" name="checkupdate-testversions-enabled" value="0" id="checkupdate-testversions" />
