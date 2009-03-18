@@ -176,8 +176,16 @@
 					<span class="tab-icon"></span>
 				</li>
 
+				<!-- REPLIES -->
+				<li class="TabbedPanelsTab" tabindex="3" title="Your replies"
+					onmouseover="Spaz.UI.showTooltip(this, this.title)"
+					onmouseout="Spaz.UI.hideTooltips()"
+					id="tab-replies" onclick="Spaz.UI.setSelectedTab(this)">
+					<span class="tab-icon"></span>
+				</li>
+
 				<!-- SENT STATUSES -->
-				<li class="TabbedPanelsTab" tabindex="3" title="Tweets you've sent"
+				<li class="TabbedPanelsTab" tabindex="4" title="Ticks you've sent"
 					onmouseover="Spaz.UI.showTooltip(this, this.title)"
 					onmouseout="Spaz.UI.hideTooltips()"
 					id="tab-user" onclick="Spaz.UI.setSelectedTab(this)">
@@ -185,7 +193,7 @@
 				</li>
 
 				<!-- PUBLIC -->
-				<li class="TabbedPanelsTab" tabindex="4" title="Public timeline"
+				<li class="TabbedPanelsTab" tabindex="5" title="Public timeline"
 					onmouseover="Spaz.UI.showTooltip(this, this.title)"
 					onmouseout="Spaz.UI.hideTooltips()"
 					id="tab-public" onclick="Spaz.UI.setSelectedTab(this)">
@@ -249,6 +257,20 @@
 					</div>
 				</div>
 
+				<!-- YOUR REPLIES -->
+				<div class="TabbedPanelsContent" id="panel-replies">
+					<div id="menu-replies" class="panelmenu">
+						<form onsubmit="return false;">
+							<input type="button" name="refresh-replies" value="Refresh" id="refresh-replies" />
+							<input type="button" name="markread-replies" value="Mark" id="markread-replies" title="Mark all as read" />
+							<input type="text" name="filter-replies" value="" id="filter-replies" title="Enter text to filter this timeline" /> 
+						</form>
+					</div>
+					<div id="timelinewrapper-replies" class="timeline-wrapper">
+						<div id="timeline-replies" class="timeline">
+						</div>
+					</div>
+				</div>
 
 				<!-- YOUR SENT MESSAGES -->
 				<div class="TabbedPanelsContent" id="panel-user">

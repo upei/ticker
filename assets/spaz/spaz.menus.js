@@ -153,7 +153,7 @@ Spaz.Menus.createRootMenu = function(type){
 	
 	var menu = new air.NativeMenu();
 	
-	var miExit = new air.NativeMenuItem("Quit Spaz");
+	var miExit = new air.NativeMenuItem("Quit Tickee");
 	miExit.addEventListener(air.Event.SELECT,function(event) {
 		Spaz.Windows.windowClose();
 	});

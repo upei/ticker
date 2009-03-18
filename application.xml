@@ -5,7 +5,7 @@
 	http://www.adobe.com/go/air_1.1_application_descriptor. -->
 	<id>Tickee.AIR</id>
 	<name>Tickee</name>
-	<version>0.7.6.5</version>
+	<version>0.7.6.7</version>
 	<filename>Tickee</filename>
 	<description>A client for UPEI Ticker Community</description>
 	<copyright>Copyright Funkatron Productions, Copyright University of Prince Edward Island, Copyright Webinit Consulting</copyright>

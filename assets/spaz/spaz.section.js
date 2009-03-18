@@ -168,13 +168,70 @@ Spaz.Section.init = function() {
 			time.report();
 		},
 	}
+	
+	Spaz.Section.replies = {
+		panel: 'panel-replies',
+		timeline: 'timeline-replies',
+		wrapper: 'timelinewrapper-replies',
+		tab: 'tab-replies',
+		tabIndex: 1,
+		urls: new Array(Spaz.Data.getAPIURL('replies_timeline')),
+		lastid: 0,
+		lastcheck: 0,
+		currdata: null,
+		prevdata: null,
+		autoload: false,
+		canclear: true,
+		mincachetime: 60000 * 2,
+		build: function(force) {
+
+			/*
+				Reset our URLs each time in case of API URL switch
+			*/
+			this.urls = new Array(Spaz.Data.getAPIURL('replies_timeline'));
+
+			Spaz.Data.getDataForTimeline(this, force)
+		},
+		onAjaxComplete: function(url, xhr, msg) {
+			Spaz.Data.onSectionAjaxComplete(this, url, xhr, msg);
+			/*
+				trigger the filtering by sending keyup
+			*/
+			$('#filter-replies').trigger('keyup');
+
+		},
+		addItem: function(item) {
+			Spaz.UI.addItemToTimeline(item, this)
+		},
+		filter: function(terms) {
+			$('#'+this.timeline + ' div.timeline-entry').removeClass('hidden');
+			if (terms) {
+				try {
+					var filter_re = new RegExp(terms, "i");
+					$('#'+this.timeline + ' div.timeline-entry').each(function(i) {
+						if ( $(this).text().search(filter_re) == -1 ) {
+							$(this).addClass('hidden');
+						}
+					});
+				} catch(e) {
+					air.trace(e.name+":"+e.message);
+				}
+				
+			}
+		},
+		cleanup: function(attribute) {
+			Spaz.UI.cleanupTimeline(this.timeline);
+			Spaz.Editor.initSuggestions();
+		},
+
+	}
 
 	Spaz.Section.user = {
 		panel: 'panel-user',
 		timeline: 'timeline-user',
 		wrapper: 'timelinewrapper-user',
 		tab: 'tab-user',
-		tabIndex: 1,
+		tabIndex: 2,
 		urls: new Array(Spaz.Data.getAPIURL('user_timeline'), Spaz.Data.getAPIURL('dm_sent')),
 		lastid: 0,
 		lastcheck: 0,
@@ -225,13 +282,15 @@ Spaz.Section.init = function() {
 		},
 
 	}
+	
+
 
 	Spaz.Section.public = {
 		panel: 'panel-public',
 		timeline: 'timeline-public',
 		wrapper: 'timelinewrapper-public',
 		tab: 'tab-public',
-		tabIndex: 2,
+		tabIndex: 3,
 		urls: new Array(Spaz.Data.getAPIURL('public_timeline')),
 		lastid: 0,
 		lastcheck: 0,
@@ -286,7 +345,7 @@ Spaz.Section.init = function() {
 		timeline: 'timeline-search',
 		wrapper: 'timelinewrapper-search',
 		tab: 'tab-search',
-		tabIndex: 2,
+		tabIndex: 4,
 		urls: new Array('http://ic.upei.ca/ticker/api/search.json?q={{query}}'),
 		lastid: 0,
 		lastcheck: 0,
@@ -401,7 +460,7 @@ Spaz.Section.init = function() {
 		timeline: 'timeline-friendslist',
 		wrapper: 'timelinewrapper-friendslist',
 		tab: 'tab-friendslist',
-		tabIndex: 3,
+		tabIndex: 5,
 		urls: new Array(Spaz.Data.getAPIURL('friendslist'), Spaz.Data.getAPIURL('followerslist')),
 		lastid: 0,
 		lastcheck: 0,
@@ -735,7 +794,7 @@ Spaz.Section.init = function() {
 		timeline: 'timeline-prefs',
 		wrapper: '',
 		tab: 'tab-prefs',
-		tabIndex: 5,
+		tabIndex: 6,
 		autoload: false,
 		canclear: false,
 		build: function(force) {},
