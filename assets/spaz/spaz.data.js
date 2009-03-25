@@ -22,9 +22,9 @@ Spaz.Data.getAPIURL = function(key) {
 	var base_url = Spaz.Prefs.get('twitter-api-base-url');
 
 	if (!base_url) {
-		base_url = 'http://ic.upei.ca/ticker/';
+		base_url = 'http://ic.upei.ca/ticker/api/';
 	}
-
+	
 	var urls = {}
 
 	// Timeline URLs
@@ -107,6 +107,11 @@ Spaz.Data.verifyPassword = function() {
 		complete:Spaz.Data.onAjaxComplete,
 		error:function() {
 			// Spaz.verified = false;
+			$('#password-messages').text('Your username and password combination is wrong, or your password is expired.');
+			// reenable user name and password
+			$('#username').attr('disabled', false);
+			$('#password').attr('disabled', false);
+
 			Spaz.dump('verification failed');
 			Spaz.UI.statusBar("Verification failed");
 			Spaz.UI.flashStatusBar();
@@ -125,6 +130,10 @@ Spaz.Data.verifyPassword = function() {
 					Spaz.Data.getRateLimitInfo( Spaz.Prefs.setRateLimit );
 				}
 
+				// reenable user name and password
+				$('#username').attr('disabled', false);
+				$('#password').attr('disabled', false);
+
 			// } else {
 				// Spaz.verified = false;
 			//	   Spaz.dump('verification failed');
@@ -138,6 +147,9 @@ Spaz.Data.verifyPassword = function() {
 			xhr.setRequestHeader("Authorization", "Basic " + Base64.encode(user + ":" + pass));
 			// cookies just get in the way.	 eliminate them.
 			xhr.setRequestHeader("Cookie", "");
+			// disable username and password
+			$('#username').attr('disabled', true);
+			$('#password').attr('disabled', true);
 		},
 		processData:false,
 		type:"POST",
@@ -185,7 +197,7 @@ Spaz.Data.update = function(msg, username, password, irt_id) {
 			$('#entrybox').attr('disabled', false);
 			$('#updateButton').attr('disabled', false);
 			$('#updateButton').val(oldButtonLabel);
-
+			
 			if (xhr.readyState < 3) {
 				Spaz.dump("Update ERROR: Server did not confirm update");
 				Spaz.UI.statusBar("ERROR: Server did not confirm update")
